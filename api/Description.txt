@@ -1,23 +1,19 @@
-Bu Python script'i, Dynatrace API'lerinden host, process, process group ve servis verilerini çekmek için 
-tasarlanmıştır. 
-Script aşağıdaki adımları gerçekleştirir:
 
-1. API çağrıları: Dynatrace altyapısı hakkında bilgi içeren verileri almak için çeşitli Dynatrace API uç 
-noktalarına (hostlar, process'ler, process grupları ve servisler) HTTP GET istekleri gönderir.
+This Python script is designed to retrieve host, process, process group, and service data from Dynatrace APIs.
+The script performs the following steps:
 
-2. Veri dönüşümü: Alınan verileri, json formatına dönüştürür.
+1. API calls: It sends HTTP GET requests to various Dynatrace API endpoints (hosts, processes, process groups, and services) 
+to fetch data about the Dynatrace infrastructure.
 
-3. Veri seçimi: İstenilen sütunları json verilerinden seçer ve "[ ]" ve "{ }" gibi işaretleri gerektiği 
-şekilde temizler.
+2. Data transformation: It transforms the retrieved data into JSON format.
 
-4. Veri ekleme: Seçilen verileri boş bir listeye ekler.
+3. Data selection: It selects the desired columns from the JSON data and cleans up characters such as "[ ]" and "{ }" as needed.
 
-5. DataFrame oluşturma: Listedeki verileri dataframe yapısına dönüştürür.
+4. Data appending: It appends the selected data to an empty list.
 
-6. DataFrame düzenleme: Process, process group ve servis DataFrame'lerine diğer DataFrame'lerde bulunan bazı 
-sütunları eklemek için merge fonksiyonlarını kullanır. Bu şekilde, DataFrame'lerde istenilen veri eklemeleri 
-yapılır.
+5. DataFrame creation: It converts the data from the list into DataFrame structures
 
-7. Excel oluşturma: Oluşturulan DataFrame'ler Excel dosyalarına (.xlsx) dönüştürülür ve işletim sisteminde 
-belirtilen dosya yoluna yazdırılır.
+6. DataFrame manipulation: It uses merge functions to add certain columns from other DataFrames to Process, process group, and service DataFrames. 
+This enables the addition of desired data to the DataFrames.
 
+7. Excel creation: The created DataFrames are converted to Excel files (.xlsx) and written to the specified file path in the operating system.
