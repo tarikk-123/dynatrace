@@ -6,11 +6,9 @@ import subprocess
 
 def list_interfaces():
     try:
-        # Linux'ta mevcut ağ arayüzlerini listele
         result = subprocess.run(["ip", "link", "show"], capture_output=True, text=True)
         output_lines = result.stdout.splitlines()
 
-        # Arayüz isimlerini filtrele
         interfaces = [line.split(":")[1].strip() for line in output_lines if "mtu" in line and not line.split(":")[1].strip().startswith(("lo", "docker"))]
 
         return interfaces
@@ -22,11 +20,9 @@ def list_interfaces():
 
 def get_interface_speed(interface):
     try:
-        # ethtool çıktısını al
         ethtool_result = subprocess.run(["ethtool", interface], capture_output=True, text=True)
         ethtool_output = ethtool_result.stdout.splitlines()
 
-        # Speed değerini ara
         for line in ethtool_output:
             if "Speed:" in line:
                 speed = ''.join(filter(lambda x: x.isdigit() or x == '+', line.split(":")[1]))
@@ -98,16 +94,15 @@ def main(interfaces, interval):
 
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="""İnterface'lerin durumunu kontrol etme ve dynatrace gönderme
-                                     Eğer bir parametre vermezsem varsayılan interface ler o sunucudaki high
-                                     speed interfaceler 
-                                     Kodun çalışma süresi de 5 saniye   
-                                     ya da bu şekilde değerleri vererek çalıştırabilirim"
+    parser = argparse.ArgumentParser(description="""Checking the status of interfaces and sending to Dynatrace
+                                     If no parameter is provided, default interfaces will be the high-speed interfaces
+                                     on that server. The code runs with a duration of 5 seconds Alternatively, you can
+                                     run by providing these values.
                                      ----  python3 dyna.py ens33 ens37 --interval 4 --speed 10
                                      """)
-    parser.add_argument("interfaces", nargs="*", help="Kontrol edilmek istenen interfaceler ")
-    parser.add_argument("--interval", type=int, default=5, help="Log gönderilmesi istenen zaman aralığı (örnek: 5 )")
-    parser.add_argument("--speed", type=int, default=10, help="Hız eşiği (örnek: 10 )")
+    parser.add_argument("interfaces", nargs="*", help="Desired interfaces to be checked.")
+    parser.add_argument("--interval", type=int, default=5, help="The interval for sending logs (e.g., 5).")
+    parser.add_argument("--speed", type=int, default=10, help="Speed threshold (e.g., 10).")
     args = parser.parse_args()
 
     if not args.interfaces:
