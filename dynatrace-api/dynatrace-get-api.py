@@ -2,7 +2,7 @@
 import requests
 import pandas as pd
 
-base_url = "https://10.200.23.30/e/bc2ebc03-bcfb-466c-8f42-ffa5bb4786ee"
+base_url = "https://10.100.13.15/e/bc2ebc03-bcfb-466c-8f42-ffa5bb4786ee"
 host_url= f"{base_url}/api/v1/entity/infrastructure/hosts"
 process_url = f"{base_url}/api/v1/entity/infrastructure/processes"
 process_group_url = f"{base_url}/api/v1/entity/infrastructure/process-groups"
