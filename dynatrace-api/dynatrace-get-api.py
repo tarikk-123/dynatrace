@@ -11,7 +11,7 @@ token = headers = {
         "Authorization": "Api-Token dt0c01.HFO6FKI7IKUYXPKJJPR6UPKY.34QTLOSAET63XSN5YF3Q44TZMZHTKIIZNQJXYJ5F3XJ5U3VATYIYMHE5IABHDNBL"
     }
 
-path =  "/home/tarik/Desktop/dynatrace/"
+path =  "/home/tarik/dynatrace/"
 hosts_excel_path = f"{path}dynatrace_hosts.xlsx"
 processes_excel_path = f"{path}dynatrace_processes.xlsx"
 processes_group_excel_path = f"{path}dynatrace_processes_group.xlsx"
