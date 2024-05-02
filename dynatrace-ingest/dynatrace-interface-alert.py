@@ -98,7 +98,7 @@ if __name__ == "__main__":
                                      If no parameter is provided, default interfaces will be the high-speed interfaces
                                      on that server. The code runs with a duration of 5 seconds Alternatively, you can
                                      run by providing these values.
-                                     ----  python3 dyna.py ens33 ens37 --interval 4 --speed 10
+                                     ----  python3 dynatrace-interface-alert.py ens33 ens37 --interval 4 --speed 10
                                      """)
     parser.add_argument("interfaces", nargs="*", help="Desired interfaces to be checked.")
     parser.add_argument("--interval", type=int, default=5, help="The interval for sending logs (e.g., 5).")
