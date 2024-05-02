@@ -1,4 +1,3 @@
-
 This Python script is designed to send metrics manually to Dynatrace. It sends the status (up/down) of selected 
 network interfaces on the server to Dynatrace at regular intervals. The code runs within a while loop, continuously 
 sending these metrics to Dynatrace at the specified time interval. The dynatrace_ingest tool is used for this process.
