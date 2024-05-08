@@ -29,6 +29,7 @@ This enables the addition of desired data to the DataFrames.
 7. Excel creation: The created DataFrames are converted to Excel files (.xlsx) and written to the specified file path in the operating system.
 
 
+
 Expalanation of Dynatrace ingest python code
 
 This Python script is designed to send metrics manually to Dynatrace. It sends the status (up/down) of selected 
